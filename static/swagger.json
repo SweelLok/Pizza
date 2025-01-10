@@ -1,0 +1,143 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Pizzas API",
+		"version": "1.0.0"
+	},
+	"paths": {
+		"/api/v1.0/pizza": {
+			"get": {
+				"description": "Returns pizzas",
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation"
+					}
+				}
+			},
+			"post": {
+				"description": "Create pizza",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Add pizza to bd",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/Pizza"
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Successful operation"
+					}
+				}
+			}
+		},
+		"/api/v1.0/pizza/{id}": {
+			"get": {
+				"description": "Returns pizzas with id",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID of pizza to return",
+						"required": true,
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete pizza by ID",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID of pizza to delete",
+						"required": true,
+						"type": "integer"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Pizza successfully deleted"
+					}
+				}
+			},
+			"put": {
+				"description": "Update pizza by ID",
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID of pizza to update",
+						"required": true,
+						"type": "integer"
+					},
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Updated pizza object",
+						"required": true,
+						"schema": {
+							"$ref": "#/definitions/Pizza"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Pizza successfully updated"
+					},
+					"404": {
+						"description": "Pizza not found"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Pizza": {
+			"type": "object",
+			"required": [
+				"name",
+				"ingredients",
+				"price"
+			],
+			"properties": {
+			 "name": {
+					"type": "string",
+					"example": "Піца Пепероні"
+				},
+				"ingredients": {
+					"type": "string",
+					"example": "Наповнення:пепероні, сир моцарела, італійські трави, томатний соус. "
+				},
+				"price": {
+					"type": "integer",
+					"example": "250"
+				}
+			}
+			}
+		}
+ }
+ 

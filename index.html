@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>API Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div id="result-container">
+   <!-- тут буде результат -->
+</div>
+
+
+<script>
+   function fetchData() {
+       const apiUrl = 'http://127.0.0.1:32000//api/v1.0/pizza/';
+
+
+       const options = {
+           method: 'GET',
+           headers: {
+               'Content-Type': 'application/json',
+           },
+       };
+
+
+       fetch(apiUrl, options)
+           .then(response => response.json())
+           .then(data => {
+               displayResult(data);
+           })
+           .catch(error => {
+               console.error('Error:', error);
+               displayResult({ error: 'Failed to fetch data' });
+           });
+   }
+
+
+
+
+   function displayResult(data) {
+       const resultContainer = document.getElementById('result-container');
+
+
+       if (data.error) {
+           resultContainer.innerHTML = `<p>Error: ${data.error}</p>`;
+       } else {
+           resultContainer.innerHTML = `<p>API Response: ${JSON.stringify(data)}</p>`;
+       }
+   }
+
+
+   window.onload = function () {
+       fetchData();
+   };
+</script>
+
+
+</body>
+</html>
