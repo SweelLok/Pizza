@@ -77,8 +77,10 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 
 
-api.add_resource(Pizza, "/api/v1.0/pizza/", "/api/v1.0/pizza/<int:id>", 
-								 "/api/v1.0/pizza/<int:id>/", "/api/v1.0/pizza")
+api.add_resource(Pizza, "/api/v1.0/pizza/", 
+								 "/api/v1.0/pizza/<int:id>", 
+								 "/api/v1.0/pizza/<int:id>/", 
+								 "/api/v1.0/pizza")
 
 
 if __name__ == "__main__":

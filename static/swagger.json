@@ -124,7 +124,7 @@
 				"price"
 			],
 			"properties": {
-			 "name": {
+				"name": {
 					"type": "string",
 					"example": "Піца Пепероні"
 				},
@@ -137,7 +137,6 @@
 					"example": "250"
 				}
 			}
-			}
 		}
- }
- 
+	}
+}
