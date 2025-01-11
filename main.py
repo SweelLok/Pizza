@@ -1,4 +1,3 @@
-import random
 from flask import Flask, jsonify
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
